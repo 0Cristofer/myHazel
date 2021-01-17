@@ -7,7 +7,7 @@
 
 #include "Log.hpp"
 
-#ifdef HZ_PLATFORM_WINDOWS
+#ifdef HZ_PLATFORM_SUPPORTED
 
 int main(int argc, char** argv)
 {
