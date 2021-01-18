@@ -7,8 +7,6 @@
 
 #include "Event.hpp"
 
-#include <sstream>
-
 namespace Hazel
 {
     class HAZEL_API WindowResizeEvent : public Event
@@ -26,8 +24,8 @@ namespace Hazel
             return ss.str();
         }
 
-        EVENT_CLASS_TYPE(WindowResize)
         EVENT_CLASS_CATEGORY(EventCategoryApplication);
+        EVENT_CLASS_TYPE(WindowResize)
 
     private:
         unsigned int m_Width, m_Height;
@@ -38,8 +36,8 @@ namespace Hazel
     public:
         WindowCloseEvent() {}
 
-        EVENT_CLASS_TYPE(WindowClose)
         EVENT_CLASS_CATEGORY(EventCategoryApplication);
+        EVENT_CLASS_TYPE(WindowClose)
     };
 
     class HAZEL_API AppTickEvent : public Event
@@ -47,8 +45,8 @@ namespace Hazel
     public:
         AppTickEvent() {}
 
-        EVENT_CLASS_TYPE(AppTick)
         EVENT_CLASS_CATEGORY(EventCategoryApplication);
+        EVENT_CLASS_TYPE(AppTick)
     };
 
     class HAZEL_API AppUpdateEvent : public Event
@@ -56,8 +54,8 @@ namespace Hazel
     public:
         AppUpdateEvent() {}
 
-        EVENT_CLASS_TYPE(AppUpdate)
         EVENT_CLASS_CATEGORY(EventCategoryApplication);
+        EVENT_CLASS_TYPE(AppUpdate)
     };
 
     class HAZEL_API AppRenderEvent : public Event
@@ -65,8 +63,8 @@ namespace Hazel
     public:
         AppRenderEvent() {}
 
-        EVENT_CLASS_TYPE(AppRender)
         EVENT_CLASS_CATEGORY(EventCategoryApplication);
+        EVENT_CLASS_TYPE(AppRender)
     };
 }
 
