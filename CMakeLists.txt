@@ -13,6 +13,7 @@ endif()
 
 set(HAZEL_SOURCE ${CMAKE_SOURCE_DIR}/Hazel/src)
 set(SPDLOG_INCLUDE ${CMAKE_SOURCE_DIR}/Hazel/vendor/spdlog/include)
+add_compile_definitions($<$<CONFIG:Debug>:HZ_DEBUG> $<$<CONFIG:Release>:HZ_RELEASE> $<$<CONFIG:MinSizeRel>:HZ_DIST>)
 
 add_subdirectory(Sandbox)
 add_subdirectory(Hazel)

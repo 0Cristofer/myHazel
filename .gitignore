@@ -51,7 +51,6 @@
 .idea/**/dbnavigator.xml
 
 build/
-cmake-build-debug/
-cmake-build-release/
+cmake-build-*/
 deps/
 out/
