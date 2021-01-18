@@ -19,4 +19,6 @@
     #error Hazel only supports Windows and Linux!
 #endif
 
+#define BIT(x) (1 << x)
+
 #endif //MYHAZEL_CORE_HPP
