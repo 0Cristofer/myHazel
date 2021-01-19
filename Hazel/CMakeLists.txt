@@ -7,4 +7,6 @@ add_library(Hazel SHARED ${SOURCE_FILES})
 
 target_precompile_headers(Hazel PRIVATE src/hzpch.hpp)
 target_compile_definitions(Hazel PRIVATE HZ_BUILD_DLL)
-target_include_directories(Hazel PRIVATE ${SPDLOG_INCLUDE})
+
+target_link_libraries(Hazel glfw)
+target_link_libraries(Hazel spdlog)
