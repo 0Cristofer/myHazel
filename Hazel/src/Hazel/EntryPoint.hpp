@@ -5,7 +5,7 @@
 #ifndef MYHAZEL_ENTRYPOINT_HPP
 #define MYHAZEL_ENTRYPOINT_HPP
 
-#include "Log.hpp"
+#include "Application.hpp"
 
 #ifdef HZ_PLATFORM_SUPPORTED
 

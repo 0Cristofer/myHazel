@@ -11,12 +11,26 @@
     #else
         #define HAZEL_API __declspec(dllimport)
     #endif
+    #define DEBUG_BREAK  __debugbreak()
     #define HZ_PLATFORM_SUPPORTED
 #elif HZ_PLATFORM_LINUX
     #define HAZEL_API
     #define HZ_PLATFORM_SUPPORTED
+    #define DEBUG_BREAK assert(false)
 #else
     #error Hazel only supports Windows and Linux!
+#endif
+
+#ifdef HZ_DEBUG
+    #define HZ_ENABLE_ASSERTS
+#endif
+
+#ifdef HZ_ENABLE_ASSERTS
+    #define HZ_ASSERT(x, ...) { if(!(x)) { HZ_ERROR("Assertion Failed: {0}", __VA_ARGS__); DEBUG_BREAK; } }
+	#define HZ_CORE_ASSERT(x, ...) { if(!(x)) { HZ_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); DEBUG_BREAK; } }
+#else
+    #define HZ_ASSERT(x, ...)
+    #define HZ_CORE_ASSERT(x, ...)
 #endif
 
 #define BIT(x) (1 << x)

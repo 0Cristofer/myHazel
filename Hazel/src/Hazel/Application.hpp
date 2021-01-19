@@ -5,7 +5,7 @@
 #ifndef MYHAZEL_APPLICATION_HPP
 #define MYHAZEL_APPLICATION_HPP
 
-#include "Core.hpp"
+#include "Window.hpp"
 
 namespace Hazel
 {
@@ -16,6 +16,10 @@ namespace Hazel
         virtual ~Application();
 
         void Run();
+
+    private:
+        bool m_Running = true;
+        std::unique_ptr<Window> m_Window;
     };
 
     Application* CreateApplication();
