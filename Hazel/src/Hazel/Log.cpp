@@ -4,8 +4,6 @@
 
 #include <spdlog/sinks/stdout_color_sinks.h>
 
-#include "Log.hpp"
-
 namespace Hazel
 {
     std::shared_ptr<spdlog::logger> Log::s_CoreLogger;

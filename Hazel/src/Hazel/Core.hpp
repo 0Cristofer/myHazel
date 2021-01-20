@@ -11,7 +11,7 @@
     #else
         #define HAZEL_API __declspec(dllimport)
     #endif
-    #define DEBUG_BREAK  __debugbreak()
+    #define DEBUG_BREAK  __debugbreak();
     #define HZ_PLATFORM_SUPPORTED
 #elif HZ_PLATFORM_LINUX
     #define HAZEL_API

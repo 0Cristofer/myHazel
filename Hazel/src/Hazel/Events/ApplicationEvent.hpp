@@ -9,15 +9,17 @@
 
 namespace Hazel
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-token-paste"
     class HAZEL_API WindowResizeEvent : public Event
     {
     public:
         WindowResizeEvent(unsigned int width, unsigned int height) : m_Width(width), m_Height(height) {}
 
-        inline unsigned int GetWidth() const { return m_Width; }
-        inline unsigned int GetHeight() const { return m_Height; }
+        [[nodiscard]] inline unsigned int GetWidth() const { return m_Width; }
+        [[nodiscard]] inline unsigned int GetHeight() const { return m_Height; }
 
-        std::string ToString() const override
+        [[nodiscard]] std::string ToString() const override
         {
             std::stringstream ss;
             ss << "WindowResizeEvent: " << m_Width << ", " << m_Height;
@@ -34,7 +36,7 @@ namespace Hazel
     class HAZEL_API WindowCloseEvent : public Event
     {
     public:
-        WindowCloseEvent() {}
+        WindowCloseEvent() = default;
 
         EVENT_CLASS_CATEGORY(EventCategoryApplication);
         EVENT_CLASS_TYPE(WindowClose)
@@ -43,7 +45,7 @@ namespace Hazel
     class HAZEL_API AppTickEvent : public Event
     {
     public:
-        AppTickEvent() {}
+        AppTickEvent() = default;
 
         EVENT_CLASS_CATEGORY(EventCategoryApplication);
         EVENT_CLASS_TYPE(AppTick)
@@ -52,7 +54,7 @@ namespace Hazel
     class HAZEL_API AppUpdateEvent : public Event
     {
     public:
-        AppUpdateEvent() {}
+        AppUpdateEvent() = default;
 
         EVENT_CLASS_CATEGORY(EventCategoryApplication);
         EVENT_CLASS_TYPE(AppUpdate)
@@ -61,11 +63,12 @@ namespace Hazel
     class HAZEL_API AppRenderEvent : public Event
     {
     public:
-        AppRenderEvent() {}
+        AppRenderEvent() = default;
 
         EVENT_CLASS_CATEGORY(EventCategoryApplication);
         EVENT_CLASS_TYPE(AppRender)
     };
+#pragma clang diagnostic pop
 }
 
 #endif //MYHAZEL_APPLICATIONEVENT_HPP
