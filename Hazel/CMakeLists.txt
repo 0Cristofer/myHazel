@@ -7,9 +7,11 @@ set(HAZEL_SRCS src/Hazel/Application.cpp src/Hazel/Application.hpp src/Hazel/Cor
 
 add_library(Hazel SHARED ${HAZEL_SRCS})
 
+target_compile_definitions(Hazel PRIVATE GLFW_INCLUDE_NONE)
 target_precompile_headers(Hazel PUBLIC src/hzpch.hpp)
 target_compile_definitions(Hazel PRIVATE HZ_BUILD_DLL)
 
 target_link_libraries(Hazel glfw)
+target_link_libraries(Hazel glad)
 target_link_libraries(Hazel spdlog)
 target_link_libraries(Hazel OpenGL::GL)

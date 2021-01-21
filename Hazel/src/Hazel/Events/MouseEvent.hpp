@@ -9,15 +9,13 @@
 
 namespace Hazel
 {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-token-paste"
     class HAZEL_API MouseMovedEvent : public Event
     {
     public:
         MouseMovedEvent(float x, float y) : m_MouseX(x), m_MouseY(y) {}
 
-        inline float getMouseX() const { return m_MouseX; }
-        inline float getMouseY() const { return m_MouseY; }
+        inline float GetMouseX() const { return m_MouseX; }
+        inline float GetMouseY() const { return m_MouseY; }
 
         std::string ToString() const override
         {
@@ -38,8 +36,8 @@ namespace Hazel
     public:
         MouseScroledEvent(float xOffset, float yOffset) : m_XOffset(xOffset), m_YOffset(yOffset) {}
 
-        inline float getMXOffset() const { return m_XOffset; }
-        inline float getMYOffset() const { return m_YOffset; }
+        inline float GetXOffset() const { return m_XOffset; }
+        inline float GetYOffset() const { return m_YOffset; }
 
         std::string ToString() const override
         {
@@ -99,7 +97,6 @@ namespace Hazel
 
         EVENT_CLASS_TYPE(MouseButtonReleased)
     };
-#pragma clang diagnostic pop
 }
 
 #endif //MYHAZEL_MOUSEEVENT_HPP

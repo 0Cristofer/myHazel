@@ -9,8 +9,6 @@
 
 namespace Hazel
 {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-token-paste"
     class HAZEL_API WindowResizeEvent : public Event
     {
     public:
@@ -68,7 +66,6 @@ namespace Hazel
         EVENT_CLASS_CATEGORY(EventCategoryApplication);
         EVENT_CLASS_TYPE(AppRender)
     };
-#pragma clang diagnostic pop
 }
 
 #endif //MYHAZEL_APPLICATIONEVENT_HPP

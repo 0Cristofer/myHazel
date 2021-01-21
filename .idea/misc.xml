@@ -4,8 +4,16 @@
   <component name="CidrRootsConfiguration">
     <sourceRoots>
       <file path="$PROJECT_DIR$/Hazel/src" />
+      <file path="$PROJECT_DIR$/Hazel/vendor/GLAD/include" />
+      <file path="$PROJECT_DIR$/Hazel/vendor/GLFW/include" />
+      <file path="$PROJECT_DIR$/Hazel/vendor/spdlog/include" />
       <file path="$PROJECT_DIR$/Sandbox/src" />
     </sourceRoots>
+    <libraryRoots>
+      <file path="$PROJECT_DIR$/Hazel/vendor/GLAD" />
+      <file path="$PROJECT_DIR$/Hazel/vendor/GLFW" />
+      <file path="$PROJECT_DIR$/Hazel/vendor/spdlog" />
+    </libraryRoots>
     <excludeRoots>
       <file path="$PROJECT_DIR$/build" />
       <file path="$PROJECT_DIR$/out" />

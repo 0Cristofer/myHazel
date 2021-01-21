@@ -16,8 +16,9 @@ add_compile_definitions($<$<CONFIG:Debug>:HZ_DEBUG> $<$<CONFIG:Release>:HZ_RELEA
 
 add_subdirectory(Hazel/vendor/GLFW)
 add_subdirectory(Hazel/vendor/spdlog)
-add_subdirectory(Sandbox)
+add_subdirectory(Hazel/vendor/GLAD)
 add_subdirectory(Hazel)
+add_subdirectory(Sandbox)
 
 # Install
 set(INSTALL_DIR ${CMAKE_SOURCE_DIR}/out/release/${CMAKE_SYSTEM_NAME}/${CMAKE_BUILD_TYPE})
