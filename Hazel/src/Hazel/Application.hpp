@@ -7,6 +7,7 @@
 
 #include "Window.hpp"
 #include "Events/ApplicationEvent.hpp"
+#include "LayerStack.hpp"
 
 namespace Hazel
 {
@@ -17,9 +18,12 @@ namespace Hazel
         virtual ~Application();
 
         void Run();
+        void PushLayer(Layer* layer);
+        void PushOverlay(Layer* overlay);
     private:
         bool m_Running = true;
         std::unique_ptr<Window> m_Window;
+        LayerStack m_LayerStack;
 
         void OnEvent(Event& event);
         bool OnWindowClose(WindowCloseEvent& event);

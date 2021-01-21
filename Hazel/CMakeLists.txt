@@ -3,7 +3,7 @@ project(Hazel)
 
 find_package(OpenGL REQUIRED)
 
-set(HAZEL_SRCS src/Hazel/Application.cpp src/Hazel/Application.hpp src/Hazel/Core.hpp src/Hazel.hpp src/Hazel/EntryPoint.hpp src/Hazel/Log.cpp src/Hazel/Log.hpp src/Hazel/Events/Event.hpp src/Hazel/Events/ApplicationEvent.hpp src/Hazel/Events/KeyEvent.hpp src/Hazel/Events/MouseEvent.hpp src/hzpch.hpp src/Hazel/Window.hpp src/Platform/Windows/WindowsWindow.cpp src/Platform/Windows/WindowsWindow.hpp)
+set(HAZEL_SRCS src/Hazel/Application.cpp src/Hazel/Application.hpp src/Hazel/Core.hpp src/Hazel.hpp src/Hazel/EntryPoint.hpp src/Hazel/Log.cpp src/Hazel/Log.hpp src/Hazel/Events/Event.hpp src/Hazel/Events/ApplicationEvent.hpp src/Hazel/Events/KeyEvent.hpp src/Hazel/Events/MouseEvent.hpp src/hzpch.hpp src/Hazel/Window.hpp src/Platform/Windows/WindowsWindow.cpp src/Platform/Windows/WindowsWindow.hpp src/Hazel/Layer.cpp src/Hazel/Layer.hpp src/Hazel/LayerStack.cpp src/Hazel/LayerStack.hpp)
 
 add_library(Hazel SHARED ${HAZEL_SRCS})
 

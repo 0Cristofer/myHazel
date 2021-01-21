@@ -17,6 +17,9 @@ namespace Hazel
         while (m_Running)
         {
             m_Window->OnUpdate();
+
+            for (Layer* layer : m_LayerStack)
+                layer->OnUpdate();
         }
     }
 
@@ -27,13 +30,28 @@ namespace Hazel
         dispatcher.Dispatch<WindowCloseEvent>(
                 [this] (WindowCloseEvent& event) -> bool { return this->OnWindowClose(event); });
 
-        HZ_CORE_TRACE("{0}", event);
+        for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
+        {
+            (*--it)->OnEvent(event);
+            if (event.Handled)
+                break;
+        }
     }
 
     bool Application::OnWindowClose(WindowCloseEvent& event)
     {
         m_Running = false;
         return true;
+    }
+
+    void Application::PushLayer(Layer *layer)
+    {
+        m_LayerStack.PushLayer(layer);
+    }
+
+    void Application::PushOverlay(Layer *overlay)
+    {
+        m_LayerStack.PushOverlay(overlay);
     }
 
     Application::~Application() = default;

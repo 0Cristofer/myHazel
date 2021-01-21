@@ -6,6 +6,7 @@
 #define MYHAZEL_HAZEL_HPP
 
 #include "Hazel/Application.hpp"
+#include "Hazel/Layer.hpp"
 #include "Hazel/Log.hpp"
 
 // ----- Entry point
