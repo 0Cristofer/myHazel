@@ -8,6 +8,7 @@
 #include "Hazel/Application.hpp"
 #include "Hazel/Layer.hpp"
 #include "Hazel/Log.hpp"
+#include "Hazel/ImGui/ImGuiLayer.hpp"
 
 // ----- Entry point
 #include "Hazel/EntryPoint.hpp"

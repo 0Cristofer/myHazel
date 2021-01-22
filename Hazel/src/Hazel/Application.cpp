@@ -2,12 +2,18 @@
 // Created by crist on 16/01/2021.
 //
 
+#include <glad/glad.h>
 #include "Application.hpp"
 
 namespace Hazel
 {
+    Application* Application::s_Instance = nullptr;
+
     Application::Application()
     {
+        HZ_CORE_ASSERT(!s_Instance, "Application already exists")
+        s_Instance = this;
+
         m_Window = std::unique_ptr<Window>(Window::Create());
         m_Window->SetEventCallback([this] (Event& event) { this->OnEvent(event); });
     }
@@ -16,10 +22,12 @@ namespace Hazel
     {
         while (m_Running)
         {
-            m_Window->OnUpdate();
+            glClear(GL_COLOR_BUFFER_BIT);
 
             for (Layer* layer : m_LayerStack)
                 layer->OnUpdate();
+
+            m_Window->OnUpdate();
         }
     }
 
@@ -47,11 +55,13 @@ namespace Hazel
     void Application::PushLayer(Layer *layer)
     {
         m_LayerStack.PushLayer(layer);
+        layer->OnAttach();
     }
 
     void Application::PushOverlay(Layer *overlay)
     {
         m_LayerStack.PushOverlay(overlay);
+        overlay->OnAttach();
     }
 
     Application::~Application() = default;

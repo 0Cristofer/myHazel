@@ -20,6 +20,9 @@ namespace Hazel
         void Run();
         void PushLayer(Layer* layer);
         void PushOverlay(Layer* overlay);
+
+        inline const Window& GetWindow() { return *m_Window; }
+        static inline Application& Get() { return *s_Instance; }
     private:
         bool m_Running = true;
         std::unique_ptr<Window> m_Window;
@@ -27,6 +30,9 @@ namespace Hazel
 
         void OnEvent(Event& event);
         bool OnWindowClose(WindowCloseEvent& event);
+
+    private:
+        static Application* s_Instance;
     };
 
     Application* CreateApplication();
