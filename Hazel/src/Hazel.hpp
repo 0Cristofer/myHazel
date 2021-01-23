@@ -8,6 +8,11 @@
 #include "Hazel/Application.hpp"
 #include "Hazel/Layer.hpp"
 #include "Hazel/Log.hpp"
+
+#include "Hazel/Input.hpp"
+#include "Hazel/KeyCodes.hpp"
+#include "Hazel/MouseButtonCodes.hpp"
+
 #include "Hazel/ImGui/ImGuiLayer.hpp"
 
 // ----- Entry point
