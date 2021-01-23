@@ -6,7 +6,7 @@ add_subdirectory(vendor/spdlog EXCLUDE_FROM_ALL)
 add_subdirectory(vendor/GLAD EXCLUDE_FROM_ALL)
 add_subdirectory(vendor/imgui EXCLUDE_FROM_ALL)
 
-set(HAZEL_SRCS src/Hazel/Application.cpp src/Hazel/Application.hpp src/Hazel/Core.hpp src/Hazel.hpp src/Hazel/EntryPoint.hpp src/Hazel/Log.cpp src/Hazel/Log.hpp src/Hazel/Events/Event.hpp src/Hazel/Events/ApplicationEvent.hpp src/Hazel/Events/KeyEvent.hpp src/Hazel/Events/MouseEvent.hpp src/hzpch.hpp src/Hazel/Window.hpp src/Platform/Windows/WindowsWindow.cpp src/Platform/Windows/WindowsWindow.hpp src/Hazel/Layer.cpp src/Hazel/Layer.hpp src/Hazel/LayerStack.cpp src/Hazel/LayerStack.hpp src/Hazel/ImGui/ImGuiLayer.cpp src/Hazel/ImGui/ImGuiLayer.hpp src/Platform/OpenGL/imgui_impl_opengl3.cpp)
+set(HAZEL_SRCS src/Hazel/Application.cpp src/Hazel/Application.hpp src/Hazel/Core.hpp src/Hazel.hpp src/Hazel/EntryPoint.hpp src/Hazel/Log.cpp src/Hazel/Log.hpp src/Hazel/Events/Event.hpp src/Hazel/Events/ApplicationEvent.hpp src/Hazel/Events/KeyEvent.hpp src/Hazel/Events/MouseEvent.hpp src/hzpch.hpp src/Hazel/Window.hpp src/Platform/Windows/WindowsWindow.cpp src/Platform/Windows/WindowsWindow.hpp src/Hazel/Layer.cpp src/Hazel/Layer.hpp src/Hazel/LayerStack.cpp src/Hazel/LayerStack.hpp src/Hazel/ImGui/ImGuiLayer.cpp src/Hazel/ImGui/ImGuiLayer.hpp src/Platform/OpenGL/imgui_impl_opengl3.cpp src/Hazel/Input.hpp src/Platform/Windows/WindowsInput.cpp src/Platform/Windows/WindowsInput.hpp)
 add_library(Hazel SHARED ${HAZEL_SRCS})
 
 target_compile_definitions(Hazel PRIVATE GLFW_INCLUDE_NONE)
