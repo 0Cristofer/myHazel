@@ -11,12 +11,10 @@ public:
 
     void OnUpdate() override
     {
-        HZ_INFO(GetName() + ": Update");
     }
 
     void OnEvent(Hazel::Event &event) override
     {
-        HZ_TRACE(GetName() + ", {0}", event);
     }
 };
 
@@ -26,10 +24,9 @@ public:
     Sandbox()
     {
         PushLayer(new ExampleLayer());
-        PushOverlay(new Hazel::ImGuiLayer());
     }
 
-    ~Sandbox()
+    ~Sandbox() override
     {
 
     }

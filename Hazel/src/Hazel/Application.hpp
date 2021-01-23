@@ -8,6 +8,7 @@
 #include "Window.hpp"
 #include "Events/ApplicationEvent.hpp"
 #include "LayerStack.hpp"
+#include "ImGui/ImGuiLayer.hpp"
 
 namespace Hazel
 {
@@ -26,6 +27,7 @@ namespace Hazel
     private:
         bool m_Running = true;
         std::unique_ptr<Window> m_Window;
+        ImGuiLayer* m_ImGuiLayer;
         LayerStack m_LayerStack;
 
         void OnEvent(Event& event);

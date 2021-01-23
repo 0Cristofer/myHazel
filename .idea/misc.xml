@@ -7,6 +7,7 @@
       <file path="$PROJECT_DIR$/Hazel/vendor/GLAD/include" />
       <file path="$PROJECT_DIR$/Hazel/vendor/GLFW/include" />
       <file path="$PROJECT_DIR$/Hazel/vendor/glm/glm" />
+      <file path="$PROJECT_DIR$/Hazel/vendor/imgui/backends" />
       <file path="$PROJECT_DIR$/Hazel/vendor/imgui/src" />
       <file path="$PROJECT_DIR$/Hazel/vendor/spdlog/include" />
       <file path="$PROJECT_DIR$/Sandbox/src" />
