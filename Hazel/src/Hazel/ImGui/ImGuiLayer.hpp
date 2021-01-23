@@ -6,6 +6,9 @@
 #define MYHAZEL_IMGUILAYER_HPP
 
 #include "../Layer.hpp"
+#include "../Events/MouseEvent.hpp"
+#include "../Events/KeyEvent.hpp"
+#include "../Application.hpp"
 
 namespace Hazel
 {
@@ -21,6 +24,17 @@ namespace Hazel
 
     private:
         float m_Time = 0.0f;
+
+    private:
+        bool OnMouseButtonPressed(MouseButtonPressedEvent& event);
+        bool OnMouseButtonReleased(MouseButtonReleasedEvent& event);
+        bool OnMouseMoved(MouseMovedEvent& event);
+        bool OnMouseScrolled(MouseScrolledEvent& event);
+        bool OnKeyPressed(KeyPressedEvent& event);
+        bool OnKeyReleased(KeyReleasedEvent& event);
+        bool OnKeyTyped(KeyTypedEvent& event);
+        bool OnWindowResized(WindowResizeEvent& event);
+
     };
 }
 

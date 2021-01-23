@@ -35,4 +35,6 @@
 
 #define BIT(x) (1 << x)
 
+#define HZ_DISPATCH_EVENT(evdp, type, fn, event) evdp.Dispatch<type>([this](type &event) -> bool { return this->fn(event); })
+
 #endif //MYHAZEL_CORE_HPP

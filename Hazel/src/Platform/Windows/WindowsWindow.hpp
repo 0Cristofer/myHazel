@@ -19,6 +19,7 @@ namespace Hazel
 
         void OnUpdate() override;
 
+        [[nodiscard]] inline void* GetNativeWindow() const override { return m_Window; }
         [[nodiscard]] unsigned int GetWidth() const override { return m_Data.Width; }
         [[nodiscard]] unsigned int GetHeight() const override { return m_Data.Height; }
 
