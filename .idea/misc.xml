@@ -6,6 +6,7 @@
       <file path="$PROJECT_DIR$/Hazel/src" />
       <file path="$PROJECT_DIR$/Hazel/vendor/GLAD/include" />
       <file path="$PROJECT_DIR$/Hazel/vendor/GLFW/include" />
+      <file path="$PROJECT_DIR$/Hazel/vendor/glm/glm" />
       <file path="$PROJECT_DIR$/Hazel/vendor/imgui/src" />
       <file path="$PROJECT_DIR$/Hazel/vendor/spdlog/include" />
       <file path="$PROJECT_DIR$/Sandbox/src" />
@@ -13,6 +14,7 @@
     <libraryRoots>
       <file path="$PROJECT_DIR$/Hazel/vendor/GLAD" />
       <file path="$PROJECT_DIR$/Hazel/vendor/GLFW" />
+      <file path="$PROJECT_DIR$/Hazel/vendor/glm" />
       <file path="$PROJECT_DIR$/Hazel/vendor/imgui" />
       <file path="$PROJECT_DIR$/Hazel/vendor/spdlog" />
     </libraryRoots>
