@@ -12,7 +12,6 @@ elseif(UNIX AND NOT APPLE)
     add_compile_definitions(HZ_PLATFORM_LINUX)
 endif()
 
-set(HAZEL_INCLUDE ${CMAKE_SOURCE_DIR}/Hazel/src)
 add_compile_definitions($<$<CONFIG:Debug>:HZ_DEBUG> $<$<CONFIG:Release>:HZ_RELEASE> $<$<CONFIG:MinSizeRel>:HZ_DIST>)
 
 add_subdirectory(Hazel)

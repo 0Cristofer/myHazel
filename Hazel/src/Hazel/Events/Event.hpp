@@ -5,7 +5,7 @@
 #ifndef MYHAZEL_EVENT_HPP
 #define MYHAZEL_EVENT_HPP
 
-#include "../Core.hpp"
+#include "Hazel/Core.hpp"
 
 namespace Hazel
 {

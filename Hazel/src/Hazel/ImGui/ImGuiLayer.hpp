@@ -5,9 +5,9 @@
 #ifndef MYHAZEL_IMGUILAYER_HPP
 #define MYHAZEL_IMGUILAYER_HPP
 
-#include "../Layer.hpp"
-#include "../Events/MouseEvent.hpp"
-#include "../Events/KeyEvent.hpp"
+#include "Hazel/Layer.hpp"
+#include "Hazel/Events/MouseEvent.hpp"
+#include "Hazel/Events/KeyEvent.hpp"
 
 namespace Hazel
 {

@@ -3,7 +3,7 @@
 //
 
 #include "WindowsInput.hpp"
-#include "../../Hazel/Application.hpp"
+#include "Hazel/Application.hpp"
 
 #include <GLFW/glfw3.h>
 

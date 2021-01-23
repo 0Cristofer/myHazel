@@ -17,16 +17,17 @@ set(HAZEL_SRCS
         src/Platform/Windows/WindowsWindow.cpp src/Platform/Windows/WindowsWindow.hpp
         src/Hazel/Layer.cpp src/Hazel/Layer.hpp
         src/Hazel/LayerStack.cpp src/Hazel/LayerStack.hpp
-        src/Hazel/ImGui/ImGuiLayer.cpp src/Hazel/ImGui/ImGuiLayer.hpp
+        src/Hazel/ImGui/ImGuiLayer.cpp src/Hazel/ImGui/ImGuiLayer.hpp vendor/imgui/backends/imgui_impl_glfw.cpp vendor/imgui/backends/imgui_impl_opengl3.cpp
         src/Hazel/Input.hpp
         src/Platform/Windows/WindowsInput.cpp src/Platform/Windows/WindowsInput.hpp
-        src/Hazel/KeyCodes.hpp src/Hazel/MouseButtonCodes.hpp src/Hazel/ImGui/ImGuiBuild.cpp)
+        src/Hazel/KeyCodes.hpp src/Hazel/MouseButtonCodes.hpp)
 
 add_library(Hazel SHARED ${HAZEL_SRCS})
 
+target_include_directories(Hazel PUBLIC src/)
 target_compile_definitions(Hazel PRIVATE GLFW_INCLUDE_NONE)
+target_compile_definitions(Hazel PRIVATE IMGUI_IMPL_OPENGL_LOADER_GLAD)
 target_compile_definitions(Hazel PRIVATE HZ_BUILD_DLL)
-target_include_directories(Hazel PRIVATE vendor/imgui/src)
 target_include_directories(Hazel PRIVATE vendor/imgui/backends)
 target_precompile_headers(Hazel PUBLIC src/hzpch.hpp)
 

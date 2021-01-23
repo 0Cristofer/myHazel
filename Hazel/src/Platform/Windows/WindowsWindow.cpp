@@ -3,9 +3,9 @@
 //
 
 #include "WindowsWindow.hpp"
-#include "../../Hazel/Events/ApplicationEvent.hpp"
-#include "../../Hazel/Events/KeyEvent.hpp"
-#include "../../Hazel/Events/MouseEvent.hpp"
+#include "Hazel/Events/ApplicationEvent.hpp"
+#include "Hazel/Events/KeyEvent.hpp"
+#include "Hazel/Events/MouseEvent.hpp"
 
 #include <glad/glad.h>
 
@@ -108,7 +108,7 @@ namespace Hazel
         {
             WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-            KeyTypedEvent event(character);
+            KeyTypedEvent event((int)character);
             data.EventCallback(event);
         });
 

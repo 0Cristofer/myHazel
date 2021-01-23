@@ -5,7 +5,7 @@
 #ifndef MYHAZEL_WINDOWSWINDOW_HPP
 #define MYHAZEL_WINDOWSWINDOW_HPP
 
-#include "../../Hazel/Window.hpp"
+#include "Hazel/Window.hpp"
 
 #include <GLFW/glfw3.h>
 

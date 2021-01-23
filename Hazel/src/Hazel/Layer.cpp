@@ -4,7 +4,6 @@
 
 #include "Layer.hpp"
 
-
 namespace Hazel
 {
     Layer::Layer(std::string name) : m_DebugName(std::move(name))
