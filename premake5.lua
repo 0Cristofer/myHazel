@@ -37,7 +37,8 @@ project "Hazel"
 		defines
 		{
 			"HZ_PLATFORM_WINDOWS",
-			"HZ_BUILD_DLL"
+			"HZ_BUILD_DLL",
+			"_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS"
 		}
 
 		postbuildcommands
@@ -89,7 +90,8 @@ project "Sandbox"
 
 		defines
 		{
-			"HZ_PLATFORM_WINDOWS"
+			"HZ_PLATFORM_WINDOWS",
+			"_SILENCE_ALL_MS_EXT_DEPRECATION_WARNINGS"
 		}
 
 	filter "configurations:Debug"
