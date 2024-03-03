@@ -4,28 +4,29 @@
 
 #include <GLFW/glfw3.h>
 
-namespace Hazel
-{
+namespace Hazel {
+
 	class WindowsWindow : public Window
 	{
 	public:
 		WindowsWindow(const WindowProps& props);
-		~WindowsWindow() override;
+		virtual ~WindowsWindow();
 
 		void OnUpdate() override;
 
-		[[nodiscard]] unsigned int GetWidth() const override { return m_Data.Width; }
-		[[nodiscard]] unsigned int GetHeight() const override { return m_Data.Height; }
+		inline unsigned int GetWidth() const override { return m_Data.Width; }
+		inline unsigned int GetHeight() const override { return m_Data.Height; }
 
 		// Window attributes
-		void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
+		inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
 		void SetVSync(bool enabled) override;
-		[[nodiscard]] bool IsVSync() const override;
+		bool IsVSync() const override;
 
+		inline virtual void* GetNativeWindow() const { return m_Window; }
 	private:
-		void Init(const WindowProps& props);
-		void Shutdown();
-
+		virtual void Init(const WindowProps& props);
+		virtual void Shutdown();
+	private:
 		GLFWwindow* m_Window;
 
 		struct WindowData
@@ -39,4 +40,5 @@ namespace Hazel
 
 		WindowData m_Data;
 	};
+
 }

@@ -1,8 +1,8 @@
 #include "hzpch.h"
 #include "LayerStack.h"
 
-namespace Hazel
-{
+namespace Hazel {
+
 	LayerStack::LayerStack()
 	{
 		m_LayerInsert = m_Layers.begin();
@@ -40,4 +40,5 @@ namespace Hazel
 		if (it != m_Layers.end())
 			m_Layers.erase(it);
 	}
+
 }
