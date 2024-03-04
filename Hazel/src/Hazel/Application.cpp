@@ -1,75 +1,80 @@
-//
-// Created by crist on 16/01/2021.
-//
+#include "hzpch.h"
+#include "Application.h"
+
+#include "Hazel/Log.h"
 
 #include <glad/glad.h>
 
-#include "Application.hpp"
+#include "Input.h"
 
-namespace Hazel
-{
-    Application* Application::s_Instance = nullptr;
+namespace Hazel {
 
-    Application::Application()
-    {
-        HZ_CORE_ASSERT(!s_Instance, "Application already exists")
-        s_Instance = this;
+#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
-        m_Window = std::unique_ptr<Window>(Window::Create());
-        m_Window->SetEventCallback([this] (Event& event) { this->OnEvent(event); });
+	Application* Application::s_Instance = nullptr;
 
-        m_ImGuiLayer = new ImGuiLayer();
-        PushOverlay(m_ImGuiLayer);
-    }
+	Application::Application() 
+	{
+		HZ_CORE_ASSERT(!s_Instance, "Application already exists!");
+		s_Instance = this;
 
-    void Application::Run()
-    {
-        while (m_Running)
-        {
-            glClear(GL_COLOR_BUFFER_BIT);
+		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
-            for (Layer* layer : m_LayerStack)
-                layer->OnUpdate();
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
+	}
 
-            m_ImGuiLayer->Begin();
-            for (Layer* layer : m_LayerStack)
-                layer->OnImGuiRender();
-            m_ImGuiLayer->End();
+	Application::~Application()
+	{
+	}
 
-            m_Window->OnUpdate();
-        }
-    }
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
 
-    void Application::OnEvent(Event& event)
-    {
-        EventDispatcher dispatcher(event);
+	void Application::PushOverlay(Layer* layer)
+	{
+		m_LayerStack.PushOverlay(layer);
+	}
 
-        dispatcher.Dispatch<WindowCloseEvent>(
-                [this] (WindowCloseEvent& event) -> bool { return this->OnWindowClose(event); });
+	void Application::OnEvent(Event& e)
+	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
-        for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
-        {
-            (*--it)->OnEvent(event);
-            if (event.Handled)
-                break;
-        }
-    }
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
+		{
+			(*--it)->OnEvent(e);
+			if (e.Handled)
+				break;
+		}
+	}
 
-    bool Application::OnWindowClose(WindowCloseEvent& event)
-    {
-        m_Running = false;
-        return true;
-    }
+	void Application::Run()
+	{
+		while (m_Running)
+		{
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
 
-    void Application::PushLayer(Layer *layer)
-    {
-        m_LayerStack.PushLayer(layer);
-    }
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
 
-    void Application::PushOverlay(Layer *overlay)
-    {
-        m_LayerStack.PushOverlay(overlay);
-    }
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
-    Application::~Application() = default;
+			m_Window->OnUpdate();
+		}
+	}
+
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
+	}
+
 }

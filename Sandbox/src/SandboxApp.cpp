@@ -1,48 +1,57 @@
-//
-// Created by crist on 16/01/2021.
-//
+#include <Hazel.h>
 
-#include <Hazel.hpp>
-#include <imgui.h>
+#include "imgui/imgui.h"
 
 class ExampleLayer : public Hazel::Layer
 {
 public:
-    ExampleLayer() : Layer("Example") {}
+	ExampleLayer()
+		: Layer("Example")
+	{
+	}
 
-    void OnUpdate() override
-    {
-    }
+	void OnUpdate() override
+	{
+		if (Hazel::Input::IsKeyPressed(HZ_KEY_TAB))
+			HZ_TRACE("Tab key is pressed (poll)!");
+	}
 
-    void OnImGuiRender() override
-    {
-        ImGui::Begin("TESTE APP");
+	virtual void OnImGuiRender() override
+	{
+		// ImGui::Begin("Test");
+		// ImGui::Text("Hello World");
+		// ImGui::End();
+	}
 
-        ImGui::Text("Teste texto");
+	void OnEvent(Hazel::Event& event) override
+	{
+		if (event.GetEventType() == Hazel::EventType::KeyPressed)
+		{
+			Hazel::KeyPressedEvent& e = (Hazel::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == HZ_KEY_TAB)
+				HZ_TRACE("Tab key is pressed (event)!");
+			HZ_TRACE("{0}", (char)e.GetKeyCode());
+		}
+	}
 
-        ImGui::End();
-    }
-
-    void OnEvent(Hazel::Event &event) override
-    {
-    }
 };
 
 class Sandbox : public Hazel::Application
 {
 public:
-    Sandbox()
-    {
-        PushLayer(new ExampleLayer());
-    }
+	Sandbox()
+	{
+		PushLayer(new ExampleLayer());
+	}
 
-    ~Sandbox() override
-    {
+	~Sandbox()
+	{
 
-    }
+	}
+
 };
 
 Hazel::Application* Hazel::CreateApplication()
 {
-    return new Sandbox();
+	return new Sandbox();
 }

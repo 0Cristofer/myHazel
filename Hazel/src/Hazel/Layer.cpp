@@ -1,15 +1,16 @@
-//
-// Created by crist on 20/01/2021.
-//
+#include "hzpch.h"
+#include "Layer.h"
 
-#include "Layer.hpp"
+namespace Hazel {
 
-namespace Hazel
-{
-    Layer::Layer(std::string name) : m_DebugName(std::move(name))
-    {
+	Layer::Layer(const std::string& debugName)
+		: m_DebugName(debugName)
+	{
+	}
 
-    }
+	Layer::~Layer()
+	{
 
-    Layer::~Layer() = default;
+	}
+
 }
