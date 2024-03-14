@@ -18,10 +18,6 @@ namespace Hazel {
 	{
 	}
 
-	ImGuiLayer::~ImGuiLayer()
-	{
-	}
-
 	void ImGuiLayer::OnAttach()
 	{
 		// Setup Dear ImGui context
@@ -61,7 +57,7 @@ namespace Hazel {
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
 	}
-
+	
 	void ImGuiLayer::Begin()
 	{
 		ImGui_ImplOpenGL3_NewFrame();
@@ -93,4 +89,5 @@ namespace Hazel {
 		static bool show = true;
 		ImGui::ShowDemoWindow(&show);
 	}
+
 }
